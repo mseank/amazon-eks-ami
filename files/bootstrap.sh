@@ -134,7 +134,7 @@ fi
 
 cat <<EOF > /etc/systemd/system/kubelet.service.d/10-kubelet-args.conf
 [Service]
-Environment='KUBELET_ARGS=--node-ip=$INTERNAL_IP --pod-infra-container-image=602401143452.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/eks/pause-amd64:3.1'
+Environment='KUBELET_ARGS=--node-ip=$INTERNAL_IP --cluster-dns=172.20.0.10 --pod-infra-container-image=602401143452.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/eks/pause-amd64:3.1'
 EOF
 
 if [[ -n "$KUBELET_EXTRA_ARGS" ]]; then
